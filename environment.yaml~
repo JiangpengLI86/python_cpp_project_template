@@ -1,0 +1,6 @@
+name: template_project
+channels:
+  - defaults
+dependencies:
+  - pytest
+prefix: ~/.conda/envs/template
