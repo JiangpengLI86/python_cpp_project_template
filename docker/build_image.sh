@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROJECT_NAME="mahrl_ugv"
+PROJECT_NAME="template_project"
 USER_NAME="dockeruser"
 
 # Navigate to the directory containing this script (docker folder)

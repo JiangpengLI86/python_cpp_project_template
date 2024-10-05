@@ -1,5 +1,5 @@
 # Define some variables
-set(PROJECT_NAME "template")
+set(PROJECT_NAME "template_project")
 set(CPP_STANDARD 11)
 set(CPP_MODULE_NAME "cpp_modules")
 set(CPP_MODULE_OUTPUT_DIR "lib")
