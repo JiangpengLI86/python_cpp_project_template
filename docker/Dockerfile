@@ -37,9 +37,13 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ >/etc/timezone
 
 ARG PROJECT_NAME
 ARG USER_NAME
+ARG UID
+ARG GID
 
 # Add sudo User: $USER_NAME >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-RUN useradd -ms /bin/bash $USER_NAME && \
+
+RUN groupadd -g $GID $USER_NAME && \
+    useradd -u $UID -g $GID -ms /bin/bash $USER_NAME && \
     echo "${USER_NAME}:${USER_NAME}" | chpasswd && \
     usermod -aG sudo $USER_NAME
 

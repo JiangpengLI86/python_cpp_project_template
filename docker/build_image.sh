@@ -10,6 +10,8 @@ cd "$(dirname "$0")"
 DOCKER_BUILDKIT=1 docker build \
     --build-arg USER_NAME=$USER_NAME \
     --build-arg PROJECT_NAME=$PROJECT_NAME \
+    --build-arg UID=$(id -u) \
+    --build-arg GID=$(id -g) \
     -t $PROJECT_NAME:0.0.1 \
     -f Dockerfile \
     ..
