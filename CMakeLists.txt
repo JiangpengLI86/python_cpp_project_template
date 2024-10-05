@@ -55,7 +55,7 @@ find_package(Boost REQUIRED COMPONENTS system filesystem thread program_options)
 
 # pybind11 library >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 target_compile_options(${CPP_MODULE_NAME} PRIVATE -fvisibility=hidden) # Hide symbols from the shared library. Only works for GCC/Clang.
-add_subdirectory(pybind11)
+add_subdirectory("external/pybind11")
 pybind11_add_module(${CPP_MODULE_NAME} ${SOURCES})
 
 # pybind11 library >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
