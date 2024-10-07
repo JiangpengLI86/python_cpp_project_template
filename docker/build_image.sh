@@ -2,7 +2,6 @@
 
 PROJECT_NAME="template_project"
 USER_NAME="dockeruser"
-
 # Navigate to the directory containing this script (docker folder)
 cd "$(dirname "$0")"
 
