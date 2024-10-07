@@ -1,0 +1,23 @@
+{
+    "env": {
+        "myIncludePath": [
+            // For some weird reason, the intelisense needs this to work properly.
+            // For the pybind11 itself, since the conda environment is activated, the include path is already set.
+            "${VSCODE_CPP_PROPERTIES_INCLUIDE_PATH}"
+        ]
+    },
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/external/pybind11/include",
+                "${myIncludePath}"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

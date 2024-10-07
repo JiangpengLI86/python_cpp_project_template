@@ -39,6 +39,7 @@ ARG PROJECT_NAME
 ARG USER_NAME
 ARG UID
 ARG GID
+ARG PYTHON_VERSION=3.10
 
 # Add sudo User: $USER_NAME >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -64,13 +65,16 @@ RUN --mount=type=bind,source=.,target=/home/$USER_NAME/$PROJECT_NAME \
     conda env create --name $PROJECT_NAME -f /home/$USER_NAME/$PROJECT_NAME/environment.yaml; \
     else \
     echo "environment.yaml not found. Creating default Conda environment."; \
-    conda create --name $PROJECT_NAME python=3.10 -y; \
+    conda create --name $PROJECT_NAME python=${PYTHON_VERSION} -y; \
     fi
 
 # Set the default environment activated when the container starts
 ENV CONDA_DEFAULT_ENV=$PROJECT_NAME
 ENV CONDA_PREFIX=/home/$USER_NAME/.conda/envs/$PROJECT_NAME
 ENV PATH=$CONDA_PREFIX/bin:$PATH
+
+# Setup environment variables for vscode cpp plugins
+ENV VSCODE_CPP_PROPERTIES_INCLUIDE_PATH=$CONDA_PREFIX/include/python${PYTHON_VERSION}
 # Create new conda environment and activate it <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 CMD ["/bin/bash"]
