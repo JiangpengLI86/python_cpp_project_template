@@ -12,7 +12,7 @@ namespace py = pybind11;
 namespace cpp_modules
 {
 
-    class TemplateEnv : public std::enable_shared_from_this<TemplateEnv>
+    class TemplateEnv
     {
     public:
         // Exposed Constructor: create a shared pointer instance of the environment with configuration.
@@ -33,11 +33,10 @@ namespace cpp_modules
         // Close the environment and release any resources.
         void close();
 
-    protected:
+    private:
         // Private Constructor: truly initialize the environment with configuration.
         TemplateEnv(const py::dict &config);
 
-    private:
         // Private member variables
         std::vector<double> state;
         py::dict configuration;
